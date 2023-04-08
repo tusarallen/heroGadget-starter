@@ -5,10 +5,19 @@ import ProductCard from "../Cards/ProductCard";
 const Shop = () => {
   const productData = useLoaderData();
 
+  //   card button handler
+  const handleAddToCart = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className="product-container">
       {productData.map((product) => (
-        <ProductCard key={product.id} product={product} />
+        <ProductCard
+          handleAddToCart={handleAddToCart}
+          key={product.id}
+          product={product}
+        />
       ))}
     </div>
   );

@@ -13,7 +13,7 @@ export const productsAndCartData = async () => {
       cartArray.push(foundProduct);
     }
   }
-  return cartArray;
+  return { cartArray, products };
 };
 
 // export default productsAndCartData;

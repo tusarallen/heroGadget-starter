@@ -9,12 +9,14 @@ import ErrorPage from "./components/ErrorPage";
 import Shop from "./components/Shop/Shop";
 import Cart from "./components/Cart";
 import { productsAndCartData } from "./customloader/getCart@ProductData";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <ErrorPage />,
+    loader: productsAndCartData,
     children: [
       {
         path: "/",
@@ -30,10 +32,17 @@ const router = createBrowserRouter([
         element: <Cart />,
         loader: productsAndCartData,
       },
+      {
+        path: "/about",
+        element: <About />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <>
+    <Toaster />
+    <RouterProvider router={router} />
+  </>
 );
